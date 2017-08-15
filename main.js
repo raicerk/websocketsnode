@@ -1,11 +1,11 @@
 let express = require('express');
-let io = require('socket.io');
-
 let app = express();
 
-app.get('/saludo', function(req, res){
-	res.send('Hola mundo');
-});
+let io = require('socket.io').listen(app.listen(8080));
 
-app.listen(8080);
-console.log(`Servidor funcionando en http://localhost:8080`);
+io.sockets.on('connection', function (socket) {
+    socket.emit('message', { datos: 'He recibido estos datos desde el servidor' });
+    socket.on('send', function (data) {
+        io.sockets.emit('message', {datos: data});
+    });
+});

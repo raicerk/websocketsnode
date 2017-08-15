@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+
+
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Formularios en tiempo real</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+</head>
+
+<body>
+	<section>
+		<article>
+			<header>
+				<h2>Cosas del sockets</h2>
+			</header>
+			<p id="respuesta">
+			</p>
+		</article>
+		<article>
+			<input type="text" id="mensaje">
+			<button type="button" id="enviar">Enviar</button>
+		</article>
+	</section>
+	<script>
+		$(document).ready(function() {
+
+			var socket = io.connect('http://localhost:8080');
+
+			socket.on('message', function(data) {
+				$("#respuesta").append(data.datos + '<br>');
+			});
+
+			$("#enviar").click(function() {
+				socket.emit('send', $("#mensaje").val());
+			});
+
+		});
+	</script>
+</body>
+
+</html>
