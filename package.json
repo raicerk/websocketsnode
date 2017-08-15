@@ -1,0 +1,25 @@
+{
+  "name": "socketmongo",
+  "version": "1.0.0",
+  "description": "Aplicación para practicar el uso de socket en aplicaciones de actualizacion de datos en tiempo real",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raicerk/websocketsnode.git"
+  },
+  "keywords": [
+    "mongodb",
+    "sockets",
+    "express",
+    "node"
+  ],
+  "author": "Juan Mora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raicerk/websocketsnode/issues"
+  },
+  "homepage": "https://github.com/raicerk/websocketsnode#readme"
+}
